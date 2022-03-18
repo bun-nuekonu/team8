@@ -36,6 +36,7 @@ class CustomUserManager(UserManager):
         return self._create_user(username, password)
 
 
+# Usersテーブル
 class Users(AbstractUser):
     objects = CustomUserManager()
 
@@ -43,6 +44,7 @@ class Users(AbstractUser):
         return self.username
 
 
+# Quizzesテーブル
 class Quizzes(models.Model):
     quiz = models.TextField(null=False)
     choice1_answer = models.TextField(null=False)
@@ -51,6 +53,7 @@ class Quizzes(models.Model):
     choice4 = models.TextField(null=False)
 
 
+# Timesテーブル
 class Times(models.Model):
     time = models.TextField(null=False)
     user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
