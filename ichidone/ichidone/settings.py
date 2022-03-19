@@ -39,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # 追加
+    'allauth', # 追加
+    'allauth.account', # 追加
+    'allauth.socialaccount', # 追加
 ]
+
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,3 +132,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Userテーブルの設定
 AUTH_USER_MODEL = 'alarm.Users'
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', #デフォルトの認証基盤
+    'allauth.account.auth_backends.AuthenticationBackend' # メールアドレスとパスワードの両方を用いて認証するために必要
+)
+
+#ACCOUNT_AUTHENTICATION_METHOD = 'email' # メールアドレス（とパスワードで）認証する
+ACCOUNT_USERNAME_REQUIRED = True # サインアップ（ユーザー登録）の時にユーザーネームを尋ねる
+#ACCOUNT_EMAIL_REQUIRED = True # サインアップ（ユーザー登録）の時にメールアドレスを尋ねる
+#ACCOUNT_EMAIL_VERIFICATION = 'mandatory' # メール検証を必須とする
+
+LOGIN_URL = '/alarm/login/' # ログインURLの設定
+LOGIN_REDIRECT_URL = '/index/' # ログイン後のリダイレクト先
+ACCOUNT_LOGOUT_REDIRECT_URL = '/alarm/login/' #　ログアウト後のリダイレクト先

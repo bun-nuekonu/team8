@@ -57,3 +57,4 @@ class Quizzes(models.Model):
 class Times(models.Model):
     time = models.TextField(null=False)
     user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
+    
