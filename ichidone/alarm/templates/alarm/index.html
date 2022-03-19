@@ -1,18 +1,48 @@
-<<!DOCTYPE html>
+{% load static %}
+
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>index</title>
 </head>
 <body>
-    <section>
-        <h1>{{ quiz.quiz }}</h1>
-        <div>
-            <div>{{ quiz.choice1_answer }}</div>
-            <div>{{ quiz.choice2 }}</div>
-            <div>{{ quiz.choice3 }}</div>
-            <div>{{ quiz.choice4 }}</div>
+
+    <header>
+        <div class="logo"><a href="/alarm">いちどね</a></div>
+        <div class="nav1">
+            <ul>
+                <li><a href="/alarm">時間登録</a></li>
+                <li><a href="/alarm">設定時刻一覧</a></li>
+            </ul>
         </div>
-    </section>
+        <div class="nav2">
+            <ul>
+                <li><a href="/alarm">新規登録</a></li>
+                <li><a href="/alarm">ログイン</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1>23:59:10</h1>
+        <label class="open" for="pop-up">問題表示</label>
+        <input type="checkbox" id="pop-up">
+        <div class="overlay">
+            <div class="window">
+		        <label class="close" for="pop-up">閉じる</label>
+		        <section>
+                    <h2>Q.問題文{{ quiz.quiz }}</h2>
+                    <div class="choices">
+                        <button><div>あああ{{ quiz.choice1_answer }}</div></button>
+                        <button><div>あああ{{ quiz.choice2 }}</div></button>
+                        <button><div>あああ{{ quiz.choice3 }}</div></button>
+                        <button><div>あああ{{ quiz.choice4 }}</div></button>
+                    </div>
+                </section>
+	        </div>
+        </div>
+    </main>
 </body>
 </html>
