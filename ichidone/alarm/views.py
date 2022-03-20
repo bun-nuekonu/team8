@@ -5,6 +5,7 @@ from .models import Quizzes
 #index用
 def index(request):
 
+
     #問題の表示 (data : HTMLに返すデータ(問題), record : 表示用問題レコード)
     data = {}
 
@@ -19,3 +20,9 @@ def index(request):
             break
 
     return render(request, "alarm/index.html", data)
+
+def login(request):
+    return render(request,)
+    
+def logout(request):
+    return render(request,)
