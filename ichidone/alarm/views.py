@@ -37,3 +37,9 @@ def index(request):
             break
 
     return render(request, "alarm/index.html", data)
+
+def login(request):
+    return render(request,)
+
+def logout(request):
+    return render(request,)
