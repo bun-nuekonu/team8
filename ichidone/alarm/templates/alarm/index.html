@@ -21,12 +21,13 @@
             <ul>
                 <li><a href="/alarm">新規登録</a></li>
                 <li><a href="/alarm">ログイン</a></li>
+                <li><a href="/alarm/logout">ログアウト</a></li>
             </ul>
         </div>
     </header>
 
-    <main>
-        <h1>23:59:10</h1>
+    <main onload="Clock()">
+        <h1 id="timeDisplay"></h1>
         <form method="post">
             <button type="submit" name="quizAppear">表示</button>
             <div class="window {{ quizHide }}">
@@ -43,5 +44,20 @@
             </div>
         </form>
     </main>
+    <script>
+    function Time() {
+      var now = new Date();
+      var h = ('0' + now.getHours()).slice(-2);
+      var m = ('0' + now.getMinutes()).slice(-2);
+      var s = ('0' + now.getSeconds()).slice(-2);
+      nowtime = h + ":" + m + ":" + s;
+      var timeDisplay = document.getElementById('timeDisplay');
+      timeDisplay.innerHTML = nowtime;
+    }
+
+    function Clock() {
+      setInterval("Time();", 1000);
+    }
+    </script>
 </body>
 </html>

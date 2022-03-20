@@ -20,4 +20,5 @@ urlpatterns = [
     path('alarm/', include('alarm.urls')),
     path('admin/', admin.site.urls),
     path('alarm/', include('allauth.urls')),
+    path('alarm/index/', include('alarm.urls'))
 ]
