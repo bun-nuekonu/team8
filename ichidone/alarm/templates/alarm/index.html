@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>index</title>
 </head>
-<body>
+<body onload="strClock();">
 
     <header>
         <div class="logo"><a href="/alarm">いちどね</a></div>
@@ -26,8 +26,8 @@
         </div>
     </header>
 
-    <main onload="Clock()">
-        <h1 id="timeDisplay"></h1>
+    <main>
+        <div id="timeDisplay"></div>
         <form method="post">
             <button type="submit" name="quizAppear">表示</button>
             <div class="window {{ quizHide }}">
@@ -45,7 +45,7 @@
         </form>
     </main>
     <script>
-    function Time() {
+    function getTime() {
       var now = new Date();
       var h = ('0' + now.getHours()).slice(-2);
       var m = ('0' + now.getMinutes()).slice(-2);
@@ -55,8 +55,8 @@
       timeDisplay.innerHTML = nowtime;
     }
 
-    function Clock() {
-      setInterval("Time();", 1000);
+    function strClock() {
+      setInterval("getTime();", 1000);
     }
     </script>
 </body>
