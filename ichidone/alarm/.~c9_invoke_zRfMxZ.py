@@ -12,46 +12,12 @@ def index(request):
         if "quizAppear" in request.POST:
             data["quizHide"] = ""
 
-        # もし、選択肢1が押されたら
         if "choice1" in request.POST:
             quizId = request.POST["quizId"]
             recordCpy = Quizzes.objects.get(id=quizId)
             ans = recordCpy.choice1_answer
             if request.POST["choice1"] == ans:
                 data["quizHide"] = "hidden"
-            else:
-                data["quizHide"] = ""
-
-        # もし、選択肢2が押されたら
-        elif "choice2" in request.POST:
-            quizId = request.POST["quizId"]
-            recordCpy = Quizzes.objects.get(id=quizId)
-            ans = recordCpy.choice1_answer
-            if request.POST["choice2"] == ans:
-                data["quizHide"] = "hidden"
-            else:
-                data["quizHide"] = ""
-
-        # もし、選択肢3が押されたら
-        elif "choice3" in request.POST:
-            quizId = request.POST["quizId"]
-            recordCpy = Quizzes.objects.get(id=quizId)
-            ans = recordCpy.choice1_answer
-            if request.POST["choice3"] == ans:
-                data["quizHide"] = "hidden"
-            else:
-                data["quizHide"] = ""
-
-        # もし、選択肢4が押されたら
-        elif "choice4" in request.POST:
-            quizId = request.POST["quizId"]
-            recordCpy = Quizzes.objects.get(id=quizId)
-            ans = recordCpy.choice1_answer
-            if request.POST["choice4"] == ans:
-                data["quizHide"] = "hidden"
-            else:
-                data["quizHide"] = ""
-
         else:
             data["quizHide"] = ""
 

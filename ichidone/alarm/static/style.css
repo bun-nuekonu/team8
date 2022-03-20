@@ -97,6 +97,11 @@ h1 {
 	transform: translate(-50%, -50%);
 }
 
+/* 問題を隠すCSS */
+.hidden {
+    display: none;
+}
+
 .close {
 	position: absolute;
 	top: 4px;
