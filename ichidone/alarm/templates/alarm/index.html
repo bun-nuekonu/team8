@@ -27,22 +27,21 @@
 
     <main>
         <h1>23:59:10</h1>
-        <label class="open" for="pop-up">問題表示</label>
-        <input type="checkbox" id="pop-up">
-        <div class="overlay">
-            <div class="window">
-		        <label class="close" for="pop-up">閉じる</label>
-		        <section>
-                    <h2>Q.問題文{{ quiz.quiz }}</h2>
+        <form method="post">
+            <button type="submit" name="quizAppear">表示</button>
+            <div class="window {{ quizHide }}">
+    	        <section>
+                    <h2>Q.問題文{{ quizText }}</h2>
                     <div class="choices">
-                        <button><div>あああ{{ quiz.choice1_answer }}</div></button>
-                        <button><div>あああ{{ quiz.choice2 }}</div></button>
-                        <button><div>あああ{{ quiz.choice3 }}</div></button>
-                        <button><div>あああ{{ quiz.choice4 }}</div></button>
+                        <input type="hidden" name="quizId" value="{{ quizId }}">
+                        <button type="submit" name="choice1" value="{{ quizChoices.0 }}">{{ quizChoices.0 }}</button>
+                        <button type="submit" name="choice2" value="{{ quizChoices.1 }}">{{ quizChoices.1 }}</button>
+                        <button type="submit" name="choice3" value="{{ quizChoices.2 }}">{{ quizChoices.2 }}</button>
+                        <button type="submit" name="choice4" value="{{ quizChoices.3 }}">{{ quizChoices.3 }}</button>
                     </div>
                 </section>
-	        </div>
-        </div>
+            </div>
+        </form>
     </main>
 </body>
 </html>
