@@ -143,3 +143,26 @@ button {
 button:hover {
     background-color: grey;
 }
+
+.form {
+    text-align: center;
+    display: block;
+    font-size: 120px;
+    margin-top: 100px;
+    font-family: arial, sans-serif；
+}
+
+.hour {
+    padding: 5px;
+    font-size: 120px;
+    font-weight: 700;
+    margin-right: 35px;
+    font-family: arial, sans-serif;
+}
+
+.minute {
+    padding: 5px;
+    font-size: 120px;
+    font-weight: 700;
+    font-family: arial, sans-serif；
+}

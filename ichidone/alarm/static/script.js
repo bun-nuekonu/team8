@@ -6,7 +6,7 @@ function getTime() {
   nowtime = h + ":" + m + ":" + s;
   var timeDisplay = document.getElementById('timeDisplay');
   timeDisplay.style.fontSize = "220px";
-  timeDisplay.style.fontFamily = "Hannotate SC, arial, sans-serif";
+  timeDisplay.style.fontFamily = "arial, sans-serif";
   timeDisplay.innerHTML = nowtime;
 }
 
