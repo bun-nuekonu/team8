@@ -59,7 +59,7 @@ def index(request):
     records = Quizzes.objects.all()
     numbers = len(records)
 
-    display_record_id = random.randint(1, numbers)
+    #display_record_id = random.randint(1, numbers)
 
     for record in records:
         if record.id == display_record_id:
