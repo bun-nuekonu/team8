@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>index</title>
+    <title>時間登録</title>
 </head>
-<body onload="strClock();">
 
+<body>
     <header>
         <div class="logo"><a href="/alarm">いちどね</a></div>
         <div class="nav1">
@@ -119,9 +119,15 @@
                     <option value="59">59</option>
                 </select>
             </form>
-            <button type="submit">アラームセット</button>
         </div>
+        <form>
+        <button name="time_register" onclick="clickEvent()">アラームセット</button>
+        </form>
     </main>
- 
+    <script>
+        function clickEvent() {
+            document.myform.submit();
+        }
+    </script>
 </body>
 </html>
