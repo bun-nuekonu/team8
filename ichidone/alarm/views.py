@@ -72,3 +72,20 @@ def index(request):
 
     return render(request, "alarm/index.html", data)
 
+def time_register(request):
+    if request.method == "POST":
+        hour = request.POST['hour']        
+        if not hour:
+            return HttpResponse("error", 400)
+
+        if hour.isdecimal() == False:
+            return HttpResponse("error", 400)
+
+        if hour.is_integer() == False:
+            return HttpResponse("error", 400)
+
+        
+        
+        return render(request, "alarm/index.html")
+    else:
+        return render(request, "alarm/time_register.html")
