@@ -28,9 +28,10 @@
 
     <main>
         <div id="timeDisplay"></div>
+        <div id="alarm">アラーム実行</div>
         <form method="post">
             <button type="submit" name="quizAppear">表示</button>
-            <div class="window {{ quizHide }}">
+            <div id="window" class="window {{ quizHide }}">
     	        <section>
                     <h2>Q.問題文{{ quizText }}</h2>
                     <div class="choices">
