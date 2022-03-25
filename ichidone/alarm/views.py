@@ -1,17 +1,21 @@
 import random
 from pygame import mixer
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Quizzes
 
+
+data = {}
 #index用
 def index(request):
 
-    data = {}
+
     data["quizHide"] = "hidden"
 
     if request.method == "POST":
-        if "quizAppear" in request.POST:
+        # print(request.POST["quizAppear"])
+        if  "quizAppear" in request.POST:
             data["quizHide"] = ""
+            print("表示までは行ってるよ")
 
         # もし、選択肢1が押されたら
         if "choice1" in request.POST:
@@ -72,9 +76,11 @@ def index(request):
             data["quizChoices"] = choiceList
             break
 
+    print(data)
     return render(request, "alarm/index.html", data)
-    
+
 def time_register(request):
+
     if request.method == "POST":
         hour = request.POST["hour"]
         print(hour)
@@ -84,9 +90,12 @@ def time_register(request):
         time = hour + minute
         print(time)
 
+        data['time'] = time
+        data['quizHide'] = 'hidden'
+
         #DBに数値を挿入する必要あり
         #time = Times.objects.create(user_id="#ユーザーIDを取り出す#", time=time)
-        return render(request, "alarm/index.html")
+        return redirect('/alarm')
     else:
 
         return render(request, "alarm/time_register.html")
@@ -94,7 +103,7 @@ def time_register(request):
         #検索したものをHTMLに送る
         #HTMLを編集する
         #button機能ごとの関数を作成する必要ある
-        
+
 def time_list(request):
     if request.method == "POST":
         time = db.execute("SELECT time FROM times")[0]["time"]
@@ -103,7 +112,7 @@ def time_list(request):
         return render(request, "alarm/time_list.html")
 
 
-      
+
 def login(request):
     if request.method == "POST":
 
