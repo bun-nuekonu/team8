@@ -166,3 +166,38 @@ button:hover {
     font-weight: 700;
     font-family: arial, sans-serif；
 }
+
+table{
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 15px;
+    color: black;
+    text-align:center;
+}
+    
+th {
+    border: 2px solid gray;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+tbody td {
+    font-size: 30px;
+    border: 2px solid gray;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+.t_time {
+    font-size: 120px;
+}
+
+.back {
+    text-align:center;
+    margin-top: 100px;
+}
