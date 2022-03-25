@@ -28,23 +28,25 @@
 
     <main>
         <div id="timeDisplay"></div>
-        <div id="alarm">アラーム実行</div>
-        <form method="post">
-            <button type="submit" name="quizAppear">表示</button>
-            <div id="window" class="window {{ quizHide }}">
-    	        <section>
-                    <h2>Q.問題文{{ quizText }}</h2>
-                    <div class="choices">
+        <div><span id="alarmTime">{{ time }}</span>に設定されています</div>
+        <div>{{ quizHide }}</div>
+        <div id="window" class="window {{ quizHide }}">
+            <section>
+                <h2>Q.問題文{{ quizText }}</h2>
+                <div class="choices">
+                    <form method="post">
                         <input type="hidden" name="quizId" value="{{ quizId }}">
                         <button type="submit" name="choice1" value="{{ quizChoices.0 }}">{{ quizChoices.0 }}</button>
                         <button type="submit" name="choice2" value="{{ quizChoices.1 }}">{{ quizChoices.1 }}</button>
                         <button type="submit" name="choice3" value="{{ quizChoices.2 }}">{{ quizChoices.2 }}</button>
                         <button type="submit" name="choice4" value="{{ quizChoices.3 }}">{{ quizChoices.3 }}</button>
-                    </div>
-                </section>
-            </div>
-        </form>
+                    </form>
+                </div>
+            </section>
+        </div>
+
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
