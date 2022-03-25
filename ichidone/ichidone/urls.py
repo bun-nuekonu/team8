@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('alarm/', include('allauth.urls')),
     path('alarm/index/', include('alarm.urls')),
-    path('alarm/time_register/', include('alarm.urls'))
+    path('alarm/time_register/', include('alarm.urls')),
+    path('alarm/time_list/', include('alarm.urls'))
 ]
