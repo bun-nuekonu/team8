@@ -71,6 +71,7 @@ def index(request):
             break
 
     return render(request, "alarm/index.html", data)
+    
 def time_register(request):
     if request.method == "POST":
         hour = request.POST['hour']
