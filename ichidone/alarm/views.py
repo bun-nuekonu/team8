@@ -73,37 +73,27 @@ def index(request):
             break
 
     return render(request, "alarm/index.html", data)
+    
 def time_register(request):
     if request.method == "POST":
-        hour = request.POST['hour']
-        if not hour:
-            return HttpResponse("error", 400)
+        hour = request.POST["hour"]
+        print(hour)
+        minute = request.POST["minute"]
+        print(minute)
 
-        if hour.isdecimal() == False:
-            return HttpResponse("error", 400)
+        time = hour + minute
+        print(time)
 
-        if hour.is_integer() == False:
-            return HttpResponse("error", 400)
-          
-        minute = request.POST['minute']
-        if not minute:
-            return HttpResponse("error", 400)
-
-        if minute.isdecimal() == False:
-            return HttpResponse("error", 400)
-
-        if minute.is_integer() == False:
-            return HttpResponse("error", 400)
-
-        #DBに数値を挿入する
-        #Times(hour = hour, minute= minute, user_id = ).save()
-
-
+        #DBに数値を挿入する必要あり
+        #time = Times.objects.create(user_id="#ユーザーIDを取り出す#", time=time)
         return render(request, "alarm/index.html")
     else:
-        return render(request, "alarm/time_register.html")
 
-      
+        return render(request, "alarm/time_register.html")
+        #DBからUSERを検索する必要
+        #検索したものをHTMLに送る
+        #HTMLを編集する
+        #button機能ごとの関数を作成する必要ある
         
 def time_list(request):
     if request.method == "POST":
