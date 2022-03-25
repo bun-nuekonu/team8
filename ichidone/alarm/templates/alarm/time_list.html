@@ -37,12 +37,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% for time in times %}
                 <tr>
-                    <td width="55%" class="t_time">15:33</td>
+                    <td width="55%" class="t_time">{{ time }}</td>
                     <td width="15%" class="t_btn"><button name="time_edit" onclick="clickEvent()">編集</button></td>
                     <td width="15%" class="t_btn"><button name="time_delete" onclick="clickEvent()">削除</button></td>
                     <td width="15%" class="t_btn"><button name="time_decision" id ="btn" onclick="clickEvent()">君に決めた！</button></td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
         <div class="back"><button name="back" onclick="location.href='/alarm'">戻る</button></div>

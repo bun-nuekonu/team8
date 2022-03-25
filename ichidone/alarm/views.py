@@ -111,11 +111,22 @@ def time_register(request):
         #button機能ごとの関数を作成する必要ある
 
 def time_list(request):
-    if request.method == "POST":
-        time = db.execute("SELECT time FROM alarm_times")[0]["time"]
-        return render(request, "alarm/time_list.html")
-    else:
-        return render(request, "alarm/time_list.html")
+    # if request.method == "POST":
+    #     time = db.execute("SELECT time FROM alarm_times")[0]["time"]
+    #     return render(request, "alarm/time_list.html")
+    # else:
+    #     return render(request, "alarm/time_list.html")
+
+    timeData = {}
+    l = []
+
+    records = Times.objects.all()
+
+    for record in records:
+        l.append(record.time[:2] + ":" + record.time[2:])
+
+    timeData["times"] = l
+    return render(request, "alarm/time_list.html", timeData)
 
 
 
