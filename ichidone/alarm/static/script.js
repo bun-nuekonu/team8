@@ -1,3 +1,8 @@
+const alarm = document.getElementById('alarm')
+const quizWindow = document.getElementById('window')
+
+var audio = new Audio('../../static/clock_bell.mp3')
+
 function getTime() {
   var now = new Date();
   var h = ('0' + now.getHours()).slice(-2);
@@ -12,4 +17,14 @@ function getTime() {
 
 function strClock() {
   setInterval("getTime();", 1000);
+
+  if(!quizWindow.classList.contains('hidden')){
+    audio.play();
+  }
 }
+
+alarm.addEventListener('click', function() {
+  audio.play();
+})
+
+

@@ -1,4 +1,5 @@
 import random
+from pygame import mixer
 from django.shortcuts import render
 from .models import Quizzes
 
@@ -55,11 +56,12 @@ def index(request):
         else:
             data["quizHide"] = ""
 
+
     #問題の表示 (data : HTMLに返すデータ(問題), record : 表示用問題レコード)
     records = Quizzes.objects.all()
     numbers = len(records)
 
-    #display_record_id = random.randint(1, numbers)
+    display_record_id = random.randint(1, numbers)
 
     for record in records:
         if record.id == display_record_id:
@@ -83,7 +85,7 @@ def time_register(request):
 
         if hour.is_integer() == False:
             return HttpResponse("error", 400)
-
+          
         minute = request.POST['minute']
         if not minute:
             return HttpResponse("error", 400)
@@ -96,7 +98,7 @@ def time_register(request):
 
         #DBに数値を挿入する
         #Times(hour = hour, minute= minute, user_id = ).save()
-        print(time)
+
 
         return render(request, "alarm/index.html")
     else:
