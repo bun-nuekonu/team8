@@ -2,6 +2,7 @@ import random
 from pygame import mixer
 from django.shortcuts import render
 from .models import Quizzes
+from django.http import HttpResponse
 
 #index用
 def index(request):
@@ -73,16 +74,18 @@ def index(request):
             break
 
     return render(request, "alarm/index.html", data)
+    
+    
 def time_register(request):
     if request.method == "POST":
-        hour = request.POST['hour']
+        hour = request.POST.get('hour')
         if not hour:
             return HttpResponse("error", 400)
 
         if hour.isdecimal() == False:
             return HttpResponse("error", 400)
 
-        if hour.is_integer() == False:
+        if isinstance(int(hour), int) == False:
             return HttpResponse("error", 400)
           
         minute = request.POST['minute']
@@ -92,7 +95,7 @@ def time_register(request):
         if minute.isdecimal() == False:
             return HttpResponse("error", 400)
 
-        if minute.is_integer() == False:
+        if isinstance(int(minute), int) == False:
             return HttpResponse("error", 400)
 
         #DBに数値を挿入する
