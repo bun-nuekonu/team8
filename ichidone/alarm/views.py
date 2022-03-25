@@ -91,3 +91,10 @@ def time_register(request):
         return render(request, "alarm/index.html")
     else:
         return render(request, "alarm/time_register.html")
+        
+def time_list(request):
+    if request.method == "POST":
+        time = db.execute("SELECT time FROM times")[0]["time"]
+        return render(request, "alarm/time_list.html")
+    else:
+        return render(request, "alarm/time_list.html")

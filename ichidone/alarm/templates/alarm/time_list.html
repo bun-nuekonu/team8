@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>設定時刻一覧</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="/alarm">いちどね</a></div>
+        <div class="nav1">
+            <ul>
+                <li><a href="/alarm_register">時間登録</a></li>
+                <li><a href="/alarm">アラームに戻る</a></li>
+            </ul>
+        </div>
+        <div class="nav2">
+            <ul>
+                <li><a href="/alarm">新規登録</a></li>
+                <li><a href="/alarm">ログイン</a></li>
+                <li><a href="/alarm/logout">ログアウト</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <table>
+        <tr>
+        <td><button name="time_edit" onclick="clickEvent()">編集</button></td>
+        <td><button name="time_delete" onclick="clickEvent()">削除</button></td>
+        <td><button name="time_decision" id ="btn" onclick="clickEvent()">君に決めた！</button></td>
+        </tr>
+        </table>
+    </main>
+    
+    <script>
+        function clickEvent() {
+            document.myform.submit();
+        }
+    </script>
+    
+</body>
+</html>
