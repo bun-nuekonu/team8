@@ -54,12 +54,6 @@ ul li a {
     padding: 0px 20px;
 }
 
-h1 {
-    text-align: center;
-    font-size: 200px;
-    color: black;
-}
-
 /*現在時刻表示の設定*/
 #timeDisplay {
     text-align: center;
@@ -198,6 +192,33 @@ tbody td {
 }
 
 .back {
-    text-align:center;
+    text-align: center;
     margin-top: 100px;
+}
+
+.message {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.site_form {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    width: 60%;
+    margin: 60px auto 0px auto;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.primaryAction {
+    margin-bottom: 30px;
+}
+
+.button.secondaryAction {
+    margin: auto;
 }

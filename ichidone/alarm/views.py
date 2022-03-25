@@ -93,6 +93,7 @@ def time_register(request):
         print(time)
 
         data['time'] = time
+        data['time_display'] = f"{ hour }:{ minute }"
         data['quizHide'] = 'hidden'
 
         #DBに数値を挿入する必要あり

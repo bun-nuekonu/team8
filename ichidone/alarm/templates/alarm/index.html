@@ -28,8 +28,10 @@
 
     <main>
         <div id="timeDisplay"></div>
-        <div><span id="alarmTime">{{ time }}</span>に設定されています</div>
-        <div>{{ quizHide }}</div>
+        {% if time %}
+        <div class="message"><span id="alarmTime" style="color:#ffffff;font-size:1px;">{{ time }}</span>⌛{{ time_display }}</div>
+        {% endif %}
+        <div style="color:#ffffff;">{{ quizHide }}</div>
         <div id="window" class="window {{ quizHide }}">
             <section>
                 <h2>Q.問題文{{ quizText }}</h2>
