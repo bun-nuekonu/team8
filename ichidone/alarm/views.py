@@ -1,7 +1,8 @@
 import random
 from pygame import mixer
 from django.shortcuts import render, redirect
-from .models import Quizzes
+from django.contrib.auth.decorators import login_required
+from .models import Quizzes, Times, Users
 
 
 data = {}
@@ -79,6 +80,7 @@ def index(request):
     print(data)
     return render(request, "alarm/index.html", data)
 
+@login_required
 def time_register(request):
 
     if request.method == "POST":
@@ -95,6 +97,10 @@ def time_register(request):
 
         #DBに数値を挿入する必要あり
         #time = Times.objects.create(user_id="#ユーザーIDを取り出す#", time=time)
+
+        t = Times(time=time, user_id=Users(id=request.user.id))
+        t.save()
+
         return redirect('/alarm')
     else:
 
@@ -106,7 +112,7 @@ def time_register(request):
 
 def time_list(request):
     if request.method == "POST":
-        time = db.execute("SELECT time FROM times")[0]["time"]
+        time = db.execute("SELECT time FROM alarm_times")[0]["time"]
         return render(request, "alarm/time_list.html")
     else:
         return render(request, "alarm/time_list.html")
